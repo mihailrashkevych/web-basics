@@ -1,0 +1,32 @@
+<p *ngIf="!dogs"><em>Loading...</em></p>
+
+<div class="form-group">
+  <label>Name:</label>
+  <input #dogName placeholder="Input name" type="text" class="form-control">
+</div>
+<div class="form-group">
+  <label>Age:</label>
+  <input #dogAge type="number" placeholder="Input age" class="form-control">
+</div>
+<div class="form-group">
+  <button type="button" class="btn btn-secondary" (click)="add(dogName.value, dogAge.value);">Add</button>
+</div>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="dogs">
+  <thead>
+    <tr>
+      <th>Identifier</th>
+      <th>Name</th>
+      <th>Age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let dog of dogs">
+      <td>{{ dog.id }}</td>
+      <td>{{ dog.name }}</td>
+      <td>{{ dog.age }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
